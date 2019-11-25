@@ -1,0 +1,10 @@
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+    active: dev
+#头像
+comment.avator: /images/head2.png
+
+
+
