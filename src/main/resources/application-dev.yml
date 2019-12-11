@@ -42,4 +42,4 @@ logging:
     root: info
     com.mercer.myblog: debug
 server:
-  port: 8081
+  port: 7777

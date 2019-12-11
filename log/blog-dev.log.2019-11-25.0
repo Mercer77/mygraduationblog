@@ -1,0 +1,124 @@
+2019-11-25 16:19:52.292  INFO 19052 --- [restartedMain] com.mercer.myblog.MyblogApplication      : Starting MyblogApplication on Mercer with PID 19052 (F:\WorkSpace\IdeaprojectsWorkSpace\springBootProjects\myblog\target\classes started by Mercer in F:\WorkSpace\IdeaprojectsWorkSpace\springBootProjects\myblog)
+2019-11-25 16:19:52.319 DEBUG 19052 --- [restartedMain] com.mercer.myblog.MyblogApplication      : Running with Spring Boot v2.1.7.RELEASE, Spring v5.1.9.RELEASE
+2019-11-25 16:19:52.320  INFO 19052 --- [restartedMain] com.mercer.myblog.MyblogApplication      : The following profiles are active: dev
+2019-11-25 16:19:52.472  INFO 19052 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-11-25 16:19:52.473  INFO 19052 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-11-25 16:19:54.012  INFO 19052 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-25 16:19:54.132  INFO 19052 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 111ms. Found 5 repository interfaces.
+2019-11-25 16:19:54.347  WARN 19052 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mercer.myblog]' package. Please check your configuration.
+2019-11-25 16:19:54.662  INFO 19052 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c97ebd51] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-25 16:19:56.030  INFO 19052 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-11-25 16:19:56.068  INFO 19052 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-11-25 16:19:56.068  INFO 19052 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2019-11-25 16:19:56.165  INFO 19052 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.18] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2019-11-25 16:19:56.166  INFO 19052 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.18] using APR version [1.6.5].
+2019-11-25 16:19:56.166  INFO 19052 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-11-25 16:19:56.166  INFO 19052 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-11-25 16:19:56.172  INFO 19052 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1  11 Sep 2018]
+2019-11-25 16:19:56.328  INFO 19052 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-11-25 16:19:56.328  INFO 19052 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3855 ms
+2019-11-25 16:19:56.666  WARN 19052 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2019-11-25 16:19:56.667  INFO 19052 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-11-25 16:19:57.732  INFO 19052 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-11-25 16:19:57.838  INFO 19052 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-11-25 16:19:57.930  INFO 19052 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2019-11-25 16:19:57.931  INFO 19052 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-11-25 16:19:58.201  INFO 19052 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-11-25 16:19:58.487  INFO 19052 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2019-11-25 16:20:00.563  INFO 19052 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-11-25 16:20:00.682  INFO 19052 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-11-25 16:20:01.227  INFO 19052 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-11-25 16:20:02.442  INFO 19052 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-25 16:20:02.505  WARN 19052 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-11-25 16:20:02.576  INFO 19052 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-11-25 16:20:03.178  INFO 19052 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-11-25 16:20:03.181  INFO 19052 --- [restartedMain] com.mercer.myblog.MyblogApplication      : Started MyblogApplication in 11.821 seconds (JVM running for 13.473)
+2019-11-25 16:27:44.784  INFO 19052 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-11-25 16:27:44.785  INFO 19052 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-11-25 16:27:44.798  INFO 19052 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2019-11-25 16:27:44.871  INFO 19052 --- [http-nio-8081-exec-2] com.mercer.myblog.aspect.LogAspect       : requestLog : url='http://localhost:8081/', ip='0:0:0:0:0:0:0:1', classMethod='com.mercer.myblog.web.IndexController.index', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2019-11-25 16:27:45.582  WARN 19052 --- [http-nio-8081-exec-2] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2019-11-25 16:27:45.623  WARN 19052 --- [http-nio-8081-exec-2] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2019-11-25 16:27:45.657  INFO 19052 --- [http-nio-8081-exec-2] com.mercer.myblog.aspect.LogAspect       : ----------after----------
+2019-11-25 16:27:45.658  INFO 19052 --- [http-nio-8081-exec-2] com.mercer.myblog.aspect.LogAspect       : Return : index
+2019-11-25 16:27:50.410  INFO 19052 --- [http-nio-8081-exec-8] com.mercer.myblog.aspect.LogAspect       : requestLog : url='http://localhost:8081/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.mercer.myblog.web.TypeShowController.types', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}, -1]}
+2019-11-25 16:27:50.706  INFO 19052 --- [http-nio-8081-exec-8] com.mercer.myblog.aspect.LogAspect       : ----------after----------
+2019-11-25 16:27:50.706  INFO 19052 --- [http-nio-8081-exec-8] com.mercer.myblog.aspect.LogAspect       : Return : types
+2019-11-25 16:27:59.420  INFO 19052 --- [http-nio-8081-exec-9] com.mercer.myblog.aspect.LogAspect       : requestLog : url='http://localhost:8081/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.mercer.myblog.web.TagShowController.tags', args=[Page request [number: 0, size 6, sort: updateTime: DESC], -1, {}]}
+2019-11-25 16:27:59.956  INFO 19052 --- [http-nio-8081-exec-9] com.mercer.myblog.aspect.LogAspect       : ----------after----------
+2019-11-25 16:27:59.956  INFO 19052 --- [http-nio-8081-exec-9] com.mercer.myblog.aspect.LogAspect       : Return : tags
+2019-11-25 16:33:39.495  INFO 19052 --- [Thread-22] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-11-25 16:33:39.496  INFO 19052 --- [Thread-22] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-11-25 16:33:39.505  INFO 19052 --- [Thread-22] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-11-25 16:33:39.518  INFO 19052 --- [Thread-22] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-11-25 16:33:40.128  INFO 19052 --- [restartedMain] com.mercer.myblog.MyblogApplication      : Starting MyblogApplication on Mercer with PID 19052 (F:\WorkSpace\IdeaprojectsWorkSpace\springBootProjects\myblog\target\classes started by Mercer in F:\WorkSpace\IdeaprojectsWorkSpace\springBootProjects\myblog)
+2019-11-25 16:33:40.129 DEBUG 19052 --- [restartedMain] com.mercer.myblog.MyblogApplication      : Running with Spring Boot v2.1.7.RELEASE, Spring v5.1.9.RELEASE
+2019-11-25 16:33:40.129  INFO 19052 --- [restartedMain] com.mercer.myblog.MyblogApplication      : The following profiles are active: dev
+2019-11-25 16:33:40.462  INFO 19052 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-25 16:33:40.462  INFO 19052 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 0ms. Found 0 repository interfaces.
+2019-11-25 16:33:40.518  WARN 19052 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mercer.myblog]' package. Please check your configuration.
+2019-11-25 16:33:40.544  INFO 19052 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c97ebd51] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-25 16:33:40.886  INFO 19052 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-11-25 16:33:40.886  INFO 19052 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-11-25 16:33:40.887  INFO 19052 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2019-11-25 16:33:40.888  INFO 19052 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.18] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2019-11-25 16:33:40.888  INFO 19052 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.18] using APR version [1.6.5].
+2019-11-25 16:33:40.888  INFO 19052 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-11-25 16:33:40.888  INFO 19052 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-11-25 16:33:40.888  INFO 19052 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1  11 Sep 2018]
+2019-11-25 16:33:40.950  INFO 19052 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-11-25 16:33:40.951  INFO 19052 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 819 ms
+2019-11-25 16:33:41.018  WARN 19052 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-2 - idleTimeout is close to or more than maxLifetime, disabling it.
+2019-11-25 16:33:41.018  INFO 19052 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2019-11-25 16:33:41.415  INFO 19052 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2019-11-25 16:33:41.420  INFO 19052 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-11-25 16:33:41.464  INFO 19052 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2019-11-25 16:33:41.557  INFO 19052 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-11-25 16:33:41.575  INFO 19052 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-11-25 16:33:41.670  INFO 19052 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-25 16:33:41.677  WARN 19052 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-11-25 16:33:41.697  INFO 19052 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-11-25 16:33:41.908  INFO 19052 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-11-25 16:33:41.910  INFO 19052 --- [restartedMain] com.mercer.myblog.MyblogApplication      : Started MyblogApplication in 1.836 seconds (JVM running for 832.202)
+2019-11-25 16:33:41.912  INFO 19052 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-11-25 16:33:45.374  INFO 19052 --- [Thread-36] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-11-25 16:33:45.376  INFO 19052 --- [Thread-36] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-11-25 16:33:45.377  INFO 19052 --- [Thread-36] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2019-11-25 16:33:45.389  INFO 19052 --- [Thread-36] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2019-11-25 16:33:46.007  INFO 19052 --- [restartedMain] com.mercer.myblog.MyblogApplication      : Starting MyblogApplication on Mercer with PID 19052 (F:\WorkSpace\IdeaprojectsWorkSpace\springBootProjects\myblog\target\classes started by Mercer in F:\WorkSpace\IdeaprojectsWorkSpace\springBootProjects\myblog)
+2019-11-25 16:33:46.007 DEBUG 19052 --- [restartedMain] com.mercer.myblog.MyblogApplication      : Running with Spring Boot v2.1.7.RELEASE, Spring v5.1.9.RELEASE
+2019-11-25 16:33:46.007  INFO 19052 --- [restartedMain] com.mercer.myblog.MyblogApplication      : The following profiles are active: dev
+2019-11-25 16:33:46.480  INFO 19052 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-25 16:33:46.523  INFO 19052 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43ms. Found 5 repository interfaces.
+2019-11-25 16:33:46.563  WARN 19052 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mercer.myblog]' package. Please check your configuration.
+2019-11-25 16:33:46.593  INFO 19052 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c97ebd51] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-25 16:33:46.820  INFO 19052 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-11-25 16:33:46.821  INFO 19052 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-11-25 16:33:46.821  INFO 19052 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2019-11-25 16:33:46.822  INFO 19052 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.18] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2019-11-25 16:33:46.822  INFO 19052 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.18] using APR version [1.6.5].
+2019-11-25 16:33:46.822  INFO 19052 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-11-25 16:33:46.822  INFO 19052 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-11-25 16:33:46.822  INFO 19052 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1  11 Sep 2018]
+2019-11-25 16:33:46.861  INFO 19052 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-11-25 16:33:46.861  INFO 19052 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 850 ms
+2019-11-25 16:33:46.974  WARN 19052 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-3 - idleTimeout is close to or more than maxLifetime, disabling it.
+2019-11-25 16:33:46.974  INFO 19052 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2019-11-25 16:33:47.395  INFO 19052 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2019-11-25 16:33:47.409  INFO 19052 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-11-25 16:33:47.463  INFO 19052 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2019-11-25 16:33:48.418  INFO 19052 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-11-25 16:33:48.466  INFO 19052 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-11-25 16:33:48.640  INFO 19052 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-11-25 16:33:49.211  INFO 19052 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-25 16:33:49.237  WARN 19052 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-11-25 16:33:49.282  INFO 19052 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-11-25 16:33:49.690  INFO 19052 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-11-25 16:33:49.691  INFO 19052 --- [restartedMain] com.mercer.myblog.MyblogApplication      : Started MyblogApplication in 3.744 seconds (JVM running for 839.982)
+2019-11-25 16:33:49.693  INFO 19052 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
