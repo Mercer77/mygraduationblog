@@ -1,0 +1,15 @@
+version: "3"
+services:
+   myblog:
+      image: openjdk:8-jre
+      ports: 
+       - "7777:7777"
+      restart: "always"
+      container_name: myblog
+      volumes:
+      - ../target/myblog-0.0.1-SNAPSHOT.jar:/app/myblog-0.0.1-SNAPSHOT.jar
+      - ./log:/log
+      - ./uploads:/uploads
+      - ./fileImage:/fileImage
+      - ./tmp:/tmp
+      entrypoint: java -jar /app/myblog-0.0.1-SNAPSHOT.jar
