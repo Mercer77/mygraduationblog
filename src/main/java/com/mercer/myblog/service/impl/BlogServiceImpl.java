@@ -9,13 +9,11 @@ import com.mercer.myblog.po.Type;
 import com.mercer.myblog.service.BlogService;
 import com.mercer.myblog.util.MarkdownUtils;
 import com.mercer.myblog.vo.BlogQuery;
+import org.hibernate.annotations.Cache;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -25,18 +23,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * @ Date:2019/8/23
  * Auther:Mercer
  * Auther:麻前程
  */
+
+@CacheConfig(cacheNames = {"blog","pages"})
 @Service
-@CacheConfig(cacheNames = "blog")
 public class BlogServiceImpl implements BlogService {
 
     @Autowired
@@ -44,18 +40,15 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     TagRepository tagRepository;
 
-    @Transactional
     @Override
     public Blog get(Long id) {
         return blogRepository.getOne(id);
     }
 
-    @Transactional
     @Override
-    @Cacheable(key = "#id")
     public Blog getDetail(Long id) {
         blogRepository.updateViews(id);
-        Blog blog = blogRepository.getOne(id);
+        Blog blog = blogRepository.findBlogById(id);
         if (blog==null){
             throw new NotFoundException("该博客不存在！");
         }
@@ -66,8 +59,8 @@ public class BlogServiceImpl implements BlogService {
         return b;
     }
 
-    @Transactional
     @Override
+    @Cacheable(value = "pages",key = "#pageable+'_'+#blog")
     public Page<Blog> list(Pageable pageable, BlogQuery blog) {
         return  blogRepository.findAll(new Specification<Blog>() {
             @Override
@@ -89,13 +82,14 @@ public class BlogServiceImpl implements BlogService {
 
     }
 
-    @Transactional
     @Override
+    @Cacheable(value = "pages",key = "#pageable")
     public Page<Blog> list(Pageable pageable) {
         return blogRepository.findAll(pageable);
     }
 
     @Override
+    @Cacheable(value = "pages",key = "#pageable+'_'+#tagId")
     public Page<Blog> listByTagId(Pageable pageable, Long tagId) {
        return blogRepository.findAll(new Specification<Blog>() {
             @Override
@@ -107,21 +101,26 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public Page<Blog> listSearch(Pageable pageable, String query) {
+    public Page<Blog> listSearch(Pageable pageable, BlogQuery query) {
 
-        return blogRepository.listSearch(query, pageable);
+        return blogRepository.listSearch(query.getTitle(), pageable);
     }
 
-    @Transactional
     @Override
+    @Cacheable(value = "pages",key = "'recommendBlogs'+#size")
     public Page<Blog> listRecommendBlogTop(Integer size) {
         Sort sort = new Sort(Sort.Direction.DESC,"updateTime");
         Pageable pageable = PageRequest.of(0, size, sort);
         return blogRepository.listRecommendBlogTop(pageable);
     }
 
-    @Transactional
     @Override
+    @Transactional
+    @Caching(
+
+            put = { @CachePut(value = "blog",key = "#blog.id")},
+            evict = {@CacheEvict(value = "pages",allEntries = true)}
+    )
     public Blog save(Blog blog) {
 
         if (blog.getId()==null){
@@ -154,8 +153,8 @@ public class BlogServiceImpl implements BlogService {
 
     }
 
-    @Transactional
     @Override
+    @Transactional
     public Blog update(Long id, Blog blog) {
         Blog b = blogRepository.getOne(id);
         blog.setCreateTime(b.getCreateTime());  //创建时间不变
@@ -166,9 +165,25 @@ public class BlogServiceImpl implements BlogService {
         BeanUtils.copyProperties(blog, b);
         return blogRepository.save(b);
     }
-    @Transactional
     @Override
+    @Transactional
+    @CacheEvict(value = "blog",key = "#id")
     public void delete(Long id) {
         blogRepository.deleteById(id);
+    }
+
+    @Override
+    public Map<String, List<Blog>> getArchivesBlog() {
+        Map<String,List<Blog>> map = new HashMap<>();
+        List<String> years = blogRepository.getYear();
+        years.forEach(year->{
+            map.put(year, blogRepository.getArchivesBlog(year));
+        });
+        return map;
+    }
+
+    @Override
+    public Long getBlogCount() {
+        return blogRepository.count();
     }
 }

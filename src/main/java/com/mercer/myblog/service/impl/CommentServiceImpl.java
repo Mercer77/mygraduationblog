@@ -7,6 +7,10 @@ import com.mercer.myblog.service.CommentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +25,7 @@ import java.util.List;
  * Auther:麻前程
  */
 @Service
+@CacheConfig(cacheNames = "comment")
 public class CommentServiceImpl implements CommentService {
     @Autowired
     private CommentRepository commentRepository;
@@ -34,6 +39,7 @@ public class CommentServiceImpl implements CommentService {
      * @return
      */
     @Override
+    @Cacheable(value = "comment")
     public List<Comment> listCommentByBlogId(Long blogId) {
         Sort sort = new Sort(Sort.Direction.DESC,"createTime");
         List<Comment> comments = commentRepository.findByBlogIdAndParentCommentNull(blogId, sort);
@@ -47,6 +53,7 @@ public class CommentServiceImpl implements CommentService {
      */
     @Transactional
     @Override
+    @CacheEvict(value = "comment",key = "#comment.blog.id")
     public Comment saveComment(Comment comment) {
         Long parentCommentId = comment.getParentComment().getId();
         Long blogId = comment.getBlog().getId();

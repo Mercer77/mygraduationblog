@@ -10,6 +10,7 @@ import com.mercer.myblog.service.BlogService;
 import com.mercer.myblog.service.CommentService;
 import com.mercer.myblog.service.TagService;
 import com.mercer.myblog.service.TypeService;
+import com.mercer.myblog.vo.BlogQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -51,13 +52,15 @@ public class IndexController {
         return "index";
     }
 //    搜索页面
-    @GetMapping("/search")
+    @PostMapping("/search")
     public String search(@PageableDefault(size = 4,sort = "updateTime",direction = Sort.Direction.DESC)
                                      Pageable pageable,
                                      Model model,
                                      @RequestParam String query){
         model.addAttribute("query", query);
-        model.addAttribute("page", blogService.listSearch(pageable, "%"+query+"%"));
+        BlogQuery query1 = new BlogQuery();
+        query1.setTitle("%"+query+"%");
+        model.addAttribute("page", blogService.listSearch(pageable, query1));
         return "search";
 
     }
@@ -71,17 +74,6 @@ public class IndexController {
 
 
 
-    @GetMapping("/tags")
-    public String tags(Model model){
-
-        return "tags";
-    }
-
-    @GetMapping("/archives")
-    public String archives(Model model){
-
-        return "archives";
-    }
 
     @GetMapping("/about")
     public String about(Model model){

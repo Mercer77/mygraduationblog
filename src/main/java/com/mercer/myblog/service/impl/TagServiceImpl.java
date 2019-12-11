@@ -6,6 +6,10 @@ import com.mercer.myblog.po.Tag;
 import com.mercer.myblog.service.TagService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -21,16 +25,21 @@ import java.util.List;
  * Auther:Mercer
  * Auther:麻前程
  */
+
+@CacheConfig(cacheNames = "tag")
 @Service
 public class TagServiceImpl implements TagService {
 
     @Autowired
     TagRepository tagRepository;
+
     @Transactional
     @Override
+    @CacheEvict(value = "tag",key = "'topTags'+1000")
     public Tag save(Tag tag) {
         return tagRepository.save(tag);
     }
+
     @Transactional
     @Override
     public Tag get(Long id) {
@@ -50,6 +59,7 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
+    @Cacheable(value = "tag",key = "'topTags'+#size")
     public List<Tag> listTop(Integer size) {
         Sort sort = new Sort(Sort.Direction.DESC,"blogs.size");
         Pageable pageable = PageRequest.of(0, size, sort);

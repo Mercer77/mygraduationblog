@@ -6,6 +6,9 @@ import com.mercer.myblog.po.Type;
 import com.mercer.myblog.service.TypeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -21,11 +24,14 @@ import java.util.List;
  * Auther:麻前程
  */
 @Service
+@CacheConfig(cacheNames = "type")
 public class TypeServiceImpl implements TypeService {
 
     @Autowired
     TypeRepository typeRepository;
+
     @Transactional
+    @CacheEvict(value = "type",key = "'topTypes'+1000")
     @Override
     public Type save(Type type) {
         return typeRepository.save(type);
@@ -49,6 +55,7 @@ public class TypeServiceImpl implements TypeService {
     }
 
     @Override
+    @Cacheable(value = "type",key = "'topTypes'+#size")
     public List<Type> listTop(Integer size) {
         Sort sort = new Sort(Sort.Direction.DESC,"blogs.size");
         Pageable pageable = PageRequest.of(0, size, sort);

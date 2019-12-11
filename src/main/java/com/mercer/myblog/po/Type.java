@@ -2,6 +2,7 @@ package com.mercer.myblog.po;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "t_type")
-public class Type {
+public class Type implements Serializable {
     @Id
     @GeneratedValue
     private Long id ;
