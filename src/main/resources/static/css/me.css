@@ -144,6 +144,10 @@ body {
     -webkit-box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
 }
+.m-shadow-tiny {
+    -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}
 
 /*------positon-----*/
 

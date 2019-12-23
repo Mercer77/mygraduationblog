@@ -52,7 +52,7 @@
   <div id="index-img">
   </div>
   <!--中间内容-->
-  <div id="waypoint"  class="m-container-small m-padded-tb-big animated fadeIn">
+  <div id="waypoint"  class="m-container-small m-padded-tb-big animated rotateInDownLeft">
     <div class="ui container">
         <div class="ui attached top segment">
           <div class="ui mini horizontal link list">
@@ -447,29 +447,31 @@ h5,h6{font-size:1em;}
               <span th:text="${tags.name}">方法论</span>
             </div>
           </div>
-          <!--赞赏-->
-          <div class="ui center aligned basic segment" th:if="${blog.appreciation}">
-            <button id="payButton" class="ui orange basic circular button">赞赏</button>
-          </div>
-          <!--二维码-->
-          <div class="ui payQR flowing popup transition hidden">
-            <div class="ui orange basic label">
-              <div class="ui images" style="font-size: inherit">
-                <div class="image">
-                  <img src="../static/images/wechat.png" th:src="@{/images/wechat.png}" class="ui bordered rounded image" style="width: 120px" alt="">
-                  <div>支付宝</div>
-                </div>
-                <div class="image">
-                  <img src="../static/images/wechat.png" th:src="@{/images/wechat.png}" class="ui bordered rounded image" style="width: 120px" alt="">
-                  <div>微信</div>
+          <div th:if="${blog.appreciation}">
+            <div class="ui center aligned basic segment" th:if="${blog.appreciation}">
+              <button id="payButton" class="ui orange basic circular button">赞赏</button>
+            </div>
+            <!--二维码-->
+            <div class="ui payQR flowing popup transition hidden">
+              <div class="ui orange basic label">
+                <div class="ui images" style="font-size: inherit">
+                  <div class="image">
+                    <img src="../static/images/wechat.png" th:src="@{/images/wechat.png}" class="ui bordered rounded image" style="width: 120px" alt="">
+                    <div>支付宝</div>
+                  </div>
+                  <div class="image">
+                    <img src="../static/images/wechat.png" th:src="@{/images/wechat.png}" class="ui bordered rounded image" style="width: 120px" alt="">
+                    <div>微信</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <!--赞赏-->
 
         </div>
         <!--博客信息-->
-        <div class="ui attached positive message">
+        <div th:if="${blog.shareStatement}" class="ui attached positive message">
           <div class="ui middle aligned grid">
             <div class="twelve wide column">
               <ui class="list">
@@ -485,7 +487,7 @@ h5,h6{font-size:1em;}
           </div>
         </div>
         <!--留言区域-->
-        <div id="comment-container"  class="ui attached bottom segment">
+        <div th:if="${blog.commentabled}" id="comment-container"  class="ui attached bottom segment">
           <!--留言区域列表  -->
           <div class="ui teal segment">
               <div id="comment-list" th:fragment="commentList">
@@ -645,7 +647,7 @@ h5,h6{font-size:1em;}
           </div>
         </div>
         <div class="three wide column">
-          <h4 class="ui inverted header m-text-thin m-text-spaced " >最新博客</h4>
+          <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
           <div class="ui inverted link list">
             <a href="#" class="item m-text-thin">用户故事（User Story）</a>
             <a href="#" class="item m-text-thin">用户故事（User Story）</a>
@@ -719,7 +721,7 @@ h5,h6{font-size:1em;}
     });
     // 二维码生成
     var url = /*[[@{/blog/{id}(id=${blog.id})}]]*/
-    var server= 'http://120.27.249.14:80';
+    var server= 'http://120.27.249.14:7777';
     var qrcode = new QRCode("qrcode", {
       text: server+url,
       width: 100,

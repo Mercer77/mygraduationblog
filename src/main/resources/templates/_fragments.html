@@ -18,7 +18,7 @@
 </head>
 <body>
     <!--导航-->
-    <div th:fragment="menu(n)" class="ui secondary attached stackable  menu ">
+    <div th:fragment="menu(n)" class="ui secondary attached stackable m-shadow-tiny menu ">
         <div class="ui container">
         <div class="ui teal header item">
             <img class="ui avatar image card " src="../static/images/head.jpg" th:src="@{/images/head.jpg}">
@@ -59,11 +59,11 @@
                     </div>
                 </div>
                 <div class="three wide column">
-                    <h4 class="ui inverted header m-text-thin m-text-spaced " >最新博客</h4>
-                    <div class="ui inverted link list">
-                        <a href="#" class="item m-text-thin">用户故事（User Story）</a>
-                        <a href="#" class="item m-text-thin">用户故事（User Story）</a>
-                        <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+                    <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+                    <div id="newbloglistContainer">
+                        <div class="ui inverted link list" th:fragment="newbloglist">
+                            <a th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item m-text-thin" th:each="blog : ${newbloglist}" th:text="${blog.title}">用户故事（User Story）</a>
+                        </div>
                     </div>
                 </div>
                 <div class="three wide column">
@@ -99,6 +99,9 @@
         <script src="../static/lib/waypoint/jquery.waypoints.min.js" th:src="@{/lib/waypoint/jquery.waypoints.min.js}"></script>
         <!--鼠标吸附-->
         <script src="../static/lib/mouseadsorption/mouseadsorption.js" th:src="@{/lib/mouseadsorption/mouseadsorption.js}"></script>
+        <script>
+            $('#newbloglistContainer').load(/*[[@{/footer/bloglist}]]*/"/footer/bloglist");
+        </script>
     </th:block>
 </body>
 </html>

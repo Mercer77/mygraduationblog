@@ -45,26 +45,28 @@
   </div>-->
   <!--中间内容-->
   <div  class="m-container-small m-padded-tb-big">
-    <div class="ui container">
-      <!--header-->
-      <div class="ui top attached segment">
-        <div class="ui middle aligned two column grid">
-          <div class="column">
-            <h3 class="ui teal header" id="tagsContainer">分类</h3>
-          </div>
-          <div class="right aligned column">
-            共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${tags.size()}"> 14 </h2> 个
+    <div class="ui container animated fadeInDown">
+      <div class="m-shadow-tiny">
+        <!--header-->
+        <div class="ui top attached segment">
+          <div class="ui middle aligned two column grid">
+            <div class="column">
+              <h3 class="ui teal header" id="tagsContainer">分类</h3>
+            </div>
+            <div class="right aligned column">
+              共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${tags.size()}"> 14 </h2> 个
+            </div>
           </div>
         </div>
-      </div>
-      <!--分类标签-->
-      <div class="ui attached segment m-padded-tb-large">
-        <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" th:each="tag : ${tags}" class="ui basic left pointing large label m-margin-tb-tiny" th:classappend="${activeTagId==tag.id}?'teal'">
-          <span th:text="${tag.name}">方法论</span> <div class="detail" th:text="${tag.blogs.size()}">23</div>
-        </a>
+        <!--分类标签-->
+        <div class="ui attached segment m-padded-tb-large">
+          <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" th:each="tag : ${tags}" class="ui basic left pointing large label m-margin-tb-tiny" th:classappend="${activeTagId==tag.id}?'teal'">
+            <span th:text="${tag.name}">方法论</span> <div class="detail" th:text="${tag.blogs.size()}">23</div>
+          </a>
+        </div>
       </div>
       <!--博客列表-->
-      <div class="ui teal segment">
+      <div class="ui teal m-shadow-tiny segment">
         <div class="ui padded vertical segment m-padded-tb-large m-mobile-lr-clear" th:each="blog : ${page.content}">
           <div class="ui mobile middle aligned stackable grid">
             <div class="eleven wide column">
@@ -109,7 +111,7 @@
         </div>
       </div>
       <!--分页-->
-      <div class="ui bottom attached segment" th:if="${page.totalPages}>1" >
+      <div class="ui bottom attached m-shadow-tiny segment" th:if="${page.totalPages}>1" >
         <div class="ui middle aligned three column grid">
           <div class="column">
             <a href="#" class="ui mini teal basic button" th:href="@{/tags/{id}(id=${activeTagId},page=${page.number}-1)}" th:unless="${page.first}">上一页</a>

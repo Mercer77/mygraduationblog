@@ -45,28 +45,30 @@
   </div>-->
   <!--中间内容-->
   <div  class="m-container-small m-padded-tb-big">
-    <div class="ui container">
-      <!--header-->
-      <div class="ui top attached segment">
-        <div class="ui middle aligned two column grid">
-          <div class="column">
-            <h3 class="ui teal header">分类</h3>
+    <div class="ui container animated fadeInDown">
+      <div class="m-shadow-tiny">
+        <!--header-->
+        <div class="ui top attached segment">
+          <div class="ui middle aligned two column grid">
+            <div class="column">
+              <h3 class="ui teal header">分类</h3>
+            </div>
+            <div class="right aligned column">
+              共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${#arrays.length(types)}"> 14 </h2> 个
+            </div>
           </div>
-          <div class="right aligned column">
-            共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${#arrays.length(types)}"> 14 </h2> 个
+        </div>
+        <!--分类标签-->
+        <div id="typesContainer" class="ui attached segment m-padded-tb-large">
+          <div class="ui labeled button m-margin-tb-tiny" th:each="type : ${types}">
+            <a href="#" th:href="@{/types/{id}(id=${type.id})}" class="ui basic button" th:classappend="${type.id==activeTypeId}?'teal'" th:text="${type.name}">思考与发现</a>
+            <div class="ui basic left pointing label" th:classappend="${type.id==activeTypeId}?'teal'" th:text="${type.blogs.size()}">23</div>
           </div>
         </div>
       </div>
-      <!--分类标签-->
-      <div id="typesContainer" class="ui attached segment m-padded-tb-large">
-        <div class="ui labeled button m-margin-tb-tiny" th:each="type : ${types}">
-          <a href="#" th:href="@{/types/{id}(id=${type.id})}" class="ui basic button" th:classappend="${type.id==activeTypeId}?'teal'" th:text="${type.name}">思考与发现</a>
-          <div class="ui basic left pointing label" th:classappend="${type.id==activeTypeId}?'teal'" th:text="${type.blogs.size()}">23</div>
-        </div>
-      </div>
-      <!--博客列表-->
 
-      <div class="ui teal segment">
+      <!--博客列表-->
+      <div class="ui teal m-shadow-tiny segment">
         <div class="ui padded vertical segment m-padded-tb-large m-mobile-lr-clear" th:each="blog : ${page.content}">
           <div class="ui mobile middle aligned stackable grid">
             <div class="eleven wide column">
@@ -103,7 +105,7 @@
         </div>
       </div>
       <!--分页-->
-      <div class="ui bottom attached segment" th:if="${page.totalPages}>1" >
+      <div class="ui bottom attached m-shadow-tiny segment" th:if="${page.totalPages}>1" >
         <div class="ui middle aligned three column grid">
           <div class="column">
             <a href="#" class="ui mini teal basic button" th:href="@{/types/{id}(id=${activeTypeId},page=${page.number}-1)}" th:unless="${page.first}">上一页</a>

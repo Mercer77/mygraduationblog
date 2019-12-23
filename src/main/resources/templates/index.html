@@ -41,28 +41,28 @@
   </a>
 
   <!--首页大图-->
-  <div id="index-img">
+  <div id="index-img" class="m-shadow-tiny animated fadeInDown">
   </div>
   <!--中间内容-->
-  <div  class="m-container m-padded-tb-big">
+  <div  class="m-container m-padded-tb-big animated flipInX">
     <div class="ui container">
       <div class="ui stackable grid">
         <!--左边博客列表-->
         <div class="eleven wide column">
-          <!--header-->
-          <div class="ui top attached segment">
-            <div class="ui middle aligned two column grid">
-              <div class="column">
-                <h3 class="ui teal header">博客</h3>
-              </div>
-              <div class="right aligned column">
-                共 <h2 class="ui orange header m-inline-block m-text-thin"><span th:text="${page.totalElements}"></span></h2> 篇
+          <div class="m-shadow-tiny">
+            <!--header-->
+            <div class="ui top attached segment">
+              <div class="ui middle aligned two column grid">
+                <div class="column">
+                  <h3 class="ui teal header">博客</h3>
+                </div>
+                <div class="right aligned column">
+                  共 <h2 class="ui orange header m-inline-block m-text-thin"><span th:text="${page.totalElements}"></span></h2> 篇
+                </div>
               </div>
             </div>
-          </div>
-
-          <!--content-->
-          <div class="ui attached segment">
+            <!--content-->
+            <div class="ui attached segment">
               <div class="ui padded vertical segment m-padded-tb-large" th:each="blog : ${page.content}">
                 <div class="ui mobile middle aligned stackable grid">
                   <div class="eleven wide column">
@@ -97,7 +97,7 @@
 
                 </div>
               </div>
-            <!--/*-->
+              <!--/*-->
               <div class="ui padded vertical segment m-padded-tb-large">
                 <div class="ui mobile reversed stackable grid">
                   <div class="eleven wide column">
@@ -268,11 +268,12 @@
 
                 </div>
               </div>
-            <!--*/-->
+              <!--*/-->
+            </div>
           </div>
-
-          <!--footer-->
-          <div class="ui bottom attached segment" th:if="${page.totalPages}>1" >
+        </div>
+        <!--footer-->
+          <div class="ui bottom attached m-shadow-tiny segment" th:if="${page.totalPages}>1" >
             <div class="ui middle aligned three column grid">
               <div class="column">
                 <a href="#" class="ui mini teal basic button" th:href="@{/(page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
@@ -286,26 +287,25 @@
             </div>
           </div>
 
-        </div>
 
         <!--右边的top-->
         <div class="five wide column">
 
           <!--分类-->
-          <div class="ui segments">
+          <div class="ui m-shadow-tiny segments">
             <div class="ui secondary segment">
               <div class="ui two column grid">
                 <div class="column">
                   <i class="idea icon"></i>分类
                 </div>
                 <div class="right aligned column">
-                  <a href="#" target="_blank">more <i class="angle double right icon"></i></a>
+                  <a href="#" th:href="@{/types/-1}" target="_blank">more <i class="angle double right icon"></i></a>
                 </div>
               </div>
             </div>
             <div class="ui teal segment">
               <div class="ui fluid vertical menu">
-                <a href="#" class="item" th:each="type : ${types}">
+                <a href="#" target="_blank" th:href="@{/types/{id}(id=${type.id})}" class="item" th:each="type : ${types}">
                   <span th:text="${type.name}">学习日志</span>
                   <div class="ui teal basic left pointing label"><span th:text="${type.blogs.size()}"></span></div>
                 </a>
@@ -336,19 +336,19 @@
           </div>
 
           <!--标签-->
-          <div class="ui segments m-margin-top-large">
+          <div class="ui m-shadow-tiny segments m-margin-top-large">
             <div class="ui secondary segment">
               <div class="ui two column grid">
                 <div class="column">
                   <i class="tags icon"></i>标签
                 </div>
                 <div class="right aligned column">
-                  <a href="#" target="_blank">more <i class="angle double right icon"></i></a>
+                  <a href="#" th:href="@{/tags/-1}" target="_blank">more <i class="angle double right icon"></i></a>
                 </div>
               </div>
             </div>
             <div class="ui teal segment">
-              <a href="#" target="_blank" th:each="tag : ${tags}" class="ui teal basic left pointing label m-margin-tb-tiny">
+              <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" target="_blank" th:each="tag : ${tags}" class="ui teal basic left pointing label m-margin-tb-tiny">
                 <span th:text="${tag.name}">方法论</span> <div class="detail"><span th:text="${tag.blogs.size()}">23</span></div>
               </a>
               <!--/*-->
@@ -384,7 +384,7 @@
           </div>
 
           <!--最新推荐-->
-          <div class="ui segments m-margin-top-large">
+          <div class="ui m-shadow-tiny segments m-margin-top-large">
             <div class="ui secondary segment ">
               <i class="bookmark icon"></i>最新推荐
             </div>
@@ -425,9 +425,7 @@
 
       </div>
     </div>
-
   </div>
-
   <br>
   <br>
   <!--底部footer-->
