@@ -1,6 +1,6 @@
-package com.mercer.myblog.web;
+package com.mercer.myblog.controller;
 
-import com.mercer.myblog.po.Tag;
+import com.mercer.myblog.entity.Tag;
 import com.mercer.myblog.service.BlogService;
 import com.mercer.myblog.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.validation.constraints.Max;
 import java.util.List;
 
 /**

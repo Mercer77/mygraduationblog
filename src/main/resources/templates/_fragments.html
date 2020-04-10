@@ -40,13 +40,12 @@
             </form>
 
         </div>
-       <!-- <div class="m-item item right m-mobile-hide">
-            <a class="ui teal button">登陆</a>&nbsp;
-            <a class="ui teal button">注册</a>
-        </div>-->
+        <div class="m-item item right m-mobile-hide">
+            <a class="ui teal button login" th:href="@{/admin/userLogin}">登陆</a>&nbsp;
+            <a class="ui teal button register" th:href="@{/admin/userRegister}">注册</a>
+        </div>
     </div>
     </div>
-
     <!--底部footer-->
     <footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-large">
         <div class="ui center aligned container">
@@ -100,7 +99,12 @@
         <!--鼠标吸附-->
         <script src="../static/lib/mouseadsorption/mouseadsorption.js" th:src="@{/lib/mouseadsorption/mouseadsorption.js}"></script>
         <script>
+            //加载最新博客列表
             $('#newbloglistContainer').load(/*[[@{/footer/bloglist}]]*/"/footer/bloglist");
+            function login(){
+                $('.ui.modal')
+                    .modal('show')
+            }
         </script>
     </th:block>
 </body>

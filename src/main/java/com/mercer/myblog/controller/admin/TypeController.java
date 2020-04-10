@@ -1,6 +1,6 @@
-package com.mercer.myblog.web.admin;
+package com.mercer.myblog.controller.admin;
 
-import com.mercer.myblog.po.Type;
+import com.mercer.myblog.entity.Type;
 import com.mercer.myblog.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

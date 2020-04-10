@@ -1,7 +1,7 @@
-package com.mercer.myblog.web.admin;
+package com.mercer.myblog.controller.admin;
 
-import com.mercer.myblog.po.Blog;
-import com.mercer.myblog.po.Type;
+import com.mercer.myblog.entity.Blog;
+import com.mercer.myblog.entity.Type;
 import com.mercer.myblog.service.BlogService;
 import com.mercer.myblog.service.TagService;
 import com.mercer.myblog.service.TypeService;

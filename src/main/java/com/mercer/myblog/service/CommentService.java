@@ -1,7 +1,6 @@
 package com.mercer.myblog.service;
 
-import com.mercer.myblog.po.Comment;
-import com.mercer.myblog.web.CommentController;
+import com.mercer.myblog.entity.Comment;
 
 import java.util.List;
 

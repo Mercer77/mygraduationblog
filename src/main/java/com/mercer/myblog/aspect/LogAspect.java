@@ -25,7 +25,7 @@ public class LogAspect {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 //    切点
-    @Pointcut("execution(* com.mercer.myblog.web..*.*(..))")
+    @Pointcut("execution(* com.mercer.myblog.controller..*.*(..))")
     public void log(){ }
 
     @After("log()")

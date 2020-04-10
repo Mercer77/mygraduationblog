@@ -1,8 +1,7 @@
-package com.mercer.myblog.web;
+package com.mercer.myblog.controller;
 
-import com.mercer.myblog.po.Comment;
-import com.mercer.myblog.po.User;
-import com.mercer.myblog.service.BlogService;
+import com.mercer.myblog.entity.Comment;
+import com.mercer.myblog.entity.User;
 import com.mercer.myblog.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

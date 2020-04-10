@@ -1,8 +1,6 @@
-package com.mercer.myblog.dao;
+package com.mercer.myblog.repository;
 
-import com.mercer.myblog.po.Tag;
-import org.apache.ibatis.annotations.Select;
-import org.springframework.data.domain.Page;
+import com.mercer.myblog.entity.Tag;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

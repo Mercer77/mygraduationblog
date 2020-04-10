@@ -13,33 +13,35 @@
 
     <!--导航-->
     <nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
-    <div class="ui container">
-        <div class="ui inverted secondary stackable menu">
-            <h2 class="ui teal header item">管理后台</h2>
-            <a href="#" th:href="@{/admin/blogs}" th:classappend="${n==1} ? 'active'" class="m-item item m-mobile-hide"><i class="mini home icon"></i>博客</a>
-            <a href="#" th:href="@{/admin/types}" th:classappend="${n==2} ? 'active'" class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
-            <a href="#" th:href="@{/admin/tags}" th:classappend="${n==3} ? 'active'" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
-            <div class="right m-item m-mobile-hide menu">
-                <div class="ui dropdown item">
-                    <div class="text" th:if="${session.user}!=null">
-                        <img class="ui avatar image" th:src="@{${session.user.avatar}}" src="https://unsplash.it/100/100?image=1005">
-                        <span th:text="${session.user.nickname}"></span>
-                    </div>
-                    <i class="dropdown icon"></i>
-                    <div class="menu">
-                        <a href="#" class="item" th:href="@{/admin/logout}">注销</a>
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">管理后台</h2>
+                <a href="#" th:href="@{/admin/index}" th:classappend="${n==0} ? 'active'" class="m-item item m-mobile-hide"><i class="mini home icon"></i>首页</a>
+                <a href="#" th:href="@{/admin/blogs}" th:classappend="${n==1} ? 'active'" class="m-item item m-mobile-hide"><i class="mini home icon"></i>博客</a>
+                <a href="#" th:href="@{/admin/types}" th:classappend="${n==2} ? 'active'" class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
+                <a href="#" th:href="@{/admin/tags}" th:classappend="${n==3} ? 'active'" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
+                <a href="#" th:href="@{/admin/comment}" th:classappend="${n==4} ? 'active'" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>留言</a>
+                <div class="right m-item m-mobile-hide menu">
+                    <div class="ui dropdown item">
+                        <div class="text" th:if="${session.user}!=null">
+                            <img class="ui avatar image" th:src="@{${session.user.avatar}}" src="https://unsplash.it/100/100?image=1005">
+                            <span th:text="${session.user.nickname}"></span>
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="#" class="item" th:href="@{/admin/logout}">注销</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
-        <i class="sidebar icon"></i>
-    </a>
-</nav>
+        <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
 
     <!--底部footer-->
-    <footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-large" style="margin-top: 6em">
+    <footer th:fragment="footer" style="margin-top: 200px" class="ui inverted vertical segment m-padded-tb-large">
         <div class="ui center aligned container">
             <div class="ui inverted divided stackable grid">
                 <div class="three wide column">
@@ -72,7 +74,6 @@
             <div class="ui inverted section divider"></div>
             <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2019 - 2020</p>
         </div>
-
     </footer>
 
     <th:block th:fragment="script">
@@ -84,4 +85,7 @@
         </script>
     </th:block>
 </body>
+<style>
+
+</style>
 </html>

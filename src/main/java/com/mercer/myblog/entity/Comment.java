@@ -1,4 +1,4 @@
-package com.mercer.myblog.po;
+package com.mercer.myblog.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

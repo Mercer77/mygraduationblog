@@ -1,6 +1,6 @@
-package com.mercer.myblog.dao;
+package com.mercer.myblog.repository;
 
-import com.mercer.myblog.po.User;
+import com.mercer.myblog.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

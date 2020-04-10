@@ -1,6 +1,6 @@
-package com.mercer.myblog.dao;
+package com.mercer.myblog.repository;
 
-import com.mercer.myblog.po.Comment;
+import com.mercer.myblog.entity.Comment;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 

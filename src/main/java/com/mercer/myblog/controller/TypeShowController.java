@@ -1,6 +1,6 @@
-package com.mercer.myblog.web;
+package com.mercer.myblog.controller;
 
-import com.mercer.myblog.po.Type;
+import com.mercer.myblog.entity.Type;
 import com.mercer.myblog.service.BlogService;
 import com.mercer.myblog.service.TypeService;
 import com.mercer.myblog.vo.BlogQuery;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 

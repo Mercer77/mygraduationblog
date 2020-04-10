@@ -1,4 +1,4 @@
-package com.mercer.myblog.web;
+package com.mercer.myblog.controller;
 
 /**
  * @ Date:2019/8/17

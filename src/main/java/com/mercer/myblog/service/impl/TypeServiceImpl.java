@@ -1,8 +1,8 @@
 package com.mercer.myblog.service.impl;
 
-import com.mercer.myblog.dao.TypeRepository;
+import com.mercer.myblog.repository.TypeRepository;
 import com.mercer.myblog.exception.NotFoundException;
-import com.mercer.myblog.po.Type;
+import com.mercer.myblog.entity.Type;
 import com.mercer.myblog.service.TypeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

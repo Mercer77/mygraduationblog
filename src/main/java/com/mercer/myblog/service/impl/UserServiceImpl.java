@@ -1,7 +1,7 @@
 package com.mercer.myblog.service.impl;
 
-import com.mercer.myblog.dao.UserRepository;
-import com.mercer.myblog.po.User;
+import com.mercer.myblog.repository.UserRepository;
+import com.mercer.myblog.entity.User;
 import com.mercer.myblog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,4 +23,10 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findUserByUsernameAndPassword(username, DigestUtils.md5DigestAsHex(password.getBytes()));
         return user;
     }
+
+    @Override
+    public User save(User user) {
+        return userRepository.save(user);
+    }
+
 }

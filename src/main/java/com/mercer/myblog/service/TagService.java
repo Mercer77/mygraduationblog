@@ -1,6 +1,6 @@
 package com.mercer.myblog.service;
 
-import com.mercer.myblog.po.Tag;
+import com.mercer.myblog.entity.Tag;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

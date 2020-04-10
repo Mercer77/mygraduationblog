@@ -1,18 +1,16 @@
 package com.mercer.myblog.service.impl;
 
-import com.mercer.myblog.dao.BlogRepository;
-import com.mercer.myblog.dao.TagRepository;
+import com.mercer.myblog.repository.BlogRepository;
+import com.mercer.myblog.repository.TagRepository;
 import com.mercer.myblog.exception.NotFoundException;
-import com.mercer.myblog.po.Blog;
-import com.mercer.myblog.po.Tag;
-import com.mercer.myblog.po.Type;
+import com.mercer.myblog.entity.Blog;
+import com.mercer.myblog.entity.Tag;
+import com.mercer.myblog.entity.Type;
 import com.mercer.myblog.service.BlogService;
 import com.mercer.myblog.util.MarkdownUtils;
 import com.mercer.myblog.vo.BlogQuery;
-import org.hibernate.annotations.Cache;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

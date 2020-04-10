@@ -3,7 +3,7 @@
 <head th:replace="_fragments :: head(~{::title})">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>博客后台登陆</title>
+  <title>游客注册</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
   <link rel="stylesheet" href="../../static/css/me.css">
 </head>
@@ -19,10 +19,15 @@
       <div class="column">
         <h2 class="ui teal image header">
           <div class="content">
-            博客后台登陆
+            游客注册
           </div>
         </h2>
-        <form class="ui large form" method="post" th:action="@{/admin/login}">
+        <div class="ui message" th:unless="${#strings.isEmpty(message)}" th:classappend="${code} eq'1' ? 'success':'negative'">
+          <i class="close icon"></i>
+          <div class="header">提示</div>
+          <p th:text="${message}"></p>
+        </div>
+        <form class="ui large form" method="post" th:action="@{/admin/register}">
           <div class="ui stacked segment">
             <div class="field">
               <div class="ui left icon input">
@@ -36,7 +41,20 @@
                 <input type="password" name="password" placeholder="密码">
               </div>
             </div>
-            <button class="ui fluid large teal submit button">登录</button>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="tags icon"></i>
+                <input type="text" name="avatar" placeholder="头像url">
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="image icon"></i>
+                <input type="email" name="email" placeholder="邮箱">
+              </div>
+            </div>
+            <button class="ui fluid large teal m-margin-bottom-small submit button">注册</button>
+            <button class="ui fluid large grey button" onclick="history.go(-1)">返回</button>
           </div>
 
           <div class="ui error message"></div>

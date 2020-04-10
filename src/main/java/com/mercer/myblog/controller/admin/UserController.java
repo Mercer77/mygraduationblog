@@ -1,9 +1,10 @@
-package com.mercer.myblog.web.admin;
+package com.mercer.myblog.controller.admin;
 
-import com.mercer.myblog.po.User;
+import com.mercer.myblog.entity.User;
 import com.mercer.myblog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,19 @@ public class UserController {
     public String loginPage(){
         return "admin/login";
     }
+
+    @GetMapping("/index")
+    public String indexPage(){
+        return "admin/index";
+    }
+    @GetMapping("/userLogin")
+    public String userLoginPage(){
+        return "login";
+    }
+    @GetMapping("/userRegister")
+    public String userRegisterPage(){
+        return "register";
+    }
     @PostMapping("/login")
     public String login(@RequestParam String username,
                         @RequestParam String password,
@@ -42,6 +56,35 @@ public class UserController {
             attributes.addFlashAttribute("message", "登陆失败，用户名或密码错误！");
             return "redirect:/admin";
         }
+    }
+
+    @PostMapping("/register")
+    public String login(@RequestParam String username,
+                        @RequestParam String password,
+                        @RequestParam String avatar,
+                        @RequestParam String email,
+                        RedirectAttributes attributes){
+
+        User user = userService.checkUser(username,password);
+        if (user!=null){
+            //注册失败
+            attributes.addFlashAttribute("message", "注册失败，已存在！");
+            attributes.addFlashAttribute("code", "0");
+        }else {
+            if (avatar==null || avatar.equals(""))
+                avatar="/images/head2.png";
+            User user1 = new User();
+            user1.setUsername(username);
+            user1.setPassword(DigestUtils.md5DigestAsHex(password.getBytes()));
+            user1.setAvatar(avatar);
+            user1.setEmail(email);
+            User user2 = userService.save(user1);
+            if (user2!=null){
+                attributes.addFlashAttribute("message", "注册成功！");
+                attributes.addFlashAttribute("code", "1");
+            }
+        }
+        return "register";
     }
     @GetMapping("/logout")
     public String logout(HttpSession session){

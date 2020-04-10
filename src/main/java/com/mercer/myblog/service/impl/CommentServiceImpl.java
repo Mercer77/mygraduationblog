@@ -1,15 +1,13 @@
 package com.mercer.myblog.service.impl;
 
-import com.mercer.myblog.dao.BlogRepository;
-import com.mercer.myblog.dao.CommentRepository;
-import com.mercer.myblog.po.Comment;
+import com.mercer.myblog.repository.BlogRepository;
+import com.mercer.myblog.repository.CommentRepository;
+import com.mercer.myblog.entity.Comment;
 import com.mercer.myblog.service.CommentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

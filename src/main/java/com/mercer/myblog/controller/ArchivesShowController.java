@@ -1,4 +1,4 @@
-package com.mercer.myblog.web;
+package com.mercer.myblog.controller;
 
 import com.mercer.myblog.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
