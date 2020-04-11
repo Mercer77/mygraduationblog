@@ -54,11 +54,12 @@
               </div>
             </div>
             <button class="ui fluid large teal m-margin-bottom-small submit button">注册</button>
-            <button class="ui fluid large grey button" onclick="history.go(-1)">返回</button>
+            <a th:if="${code eq '0'}" class="ui fluid large grey button" onclick="history.go(-1)">返回</a>
+            <a th:if="${code eq '1'}" class="ui fluid large green button" th:href="@{/admin/userLogin}">去登录</a>
           </div>
 
           <div class="ui error message"></div>
-          <div class="ui negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名或密码错误</div>
+          <!--<div class="ui negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名或密码错误</div>-->
 
         </form>
 
@@ -95,6 +96,14 @@
         }
       }
     });
+    $('.message .close')
+            .on('click', function() {
+              $(this)
+                .closest('.message')
+                .transition('fade')
+              ;
+            })
+    ;
   </script>
 </body>
 </html>

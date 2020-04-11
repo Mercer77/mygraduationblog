@@ -20,9 +20,9 @@
                 <a href="#" th:href="@{/admin/blogs}" th:classappend="${n==1} ? 'active'" class="m-item item m-mobile-hide"><i class="mini home icon"></i>博客</a>
                 <a href="#" th:href="@{/admin/types}" th:classappend="${n==2} ? 'active'" class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
                 <a href="#" th:href="@{/admin/tags}" th:classappend="${n==3} ? 'active'" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
-                <a href="#" th:href="@{/admin/comment}" th:classappend="${n==4} ? 'active'" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>留言</a>
+                <a href="#" th:href="@{/admin/comments}" th:classappend="${n==4} ? 'active'" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>留言</a>
                 <div class="right m-item m-mobile-hide menu">
-                    <div class="ui dropdown item">
+                    <div class="ui dropdown item" th:if="${session.user!=null}">
                         <div class="text" th:if="${session.user}!=null">
                             <img class="ui avatar image" th:src="@{${session.user.avatar}}" src="https://unsplash.it/100/100?image=1005">
                             <span th:text="${session.user.nickname}"></span>

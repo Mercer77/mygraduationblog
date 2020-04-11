@@ -3,20 +3,19 @@
 <head th:replace="admin/_fragments :: head(~{::title})">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>标签管理</title>
+  <title>留言管理</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
   <link rel="stylesheet" href="../../static/css/me.css">
 </head>
 <body>
 
   <!--导航-->
-  <nav th:replace="admin/_fragments :: menu(3)">
+  <nav th:replace="admin/_fragments :: menu(4)" >
   </nav>
   <div class="ui attached pointing menu">
     <div class="ui container">
       <div class="right menu">
-        <a href="#" th:href="@{/admin/tags/input}" class="item">新增</a>
-        <a href="#" th:href="@{/admin/tags}" class="teal active item">列表</a>
+        <a href="#" th:href="@{/admin/comments}" class="teal active item">列表</a>
       </div>
     </div>
   </div>
@@ -33,31 +32,39 @@
         <thead>
           <tr>
             <th>序号</th>
-            <th>名称</th>
+            <th>留言内容</th>
+            <th>发表用户</th>
+            <th>发表时间</th>
+            <th>所属博客</th>
+            <th>留言等级</th>
+            <th>是否管理员发布</th>
             <th>操作</th>
           </tr>
         </thead>
         <tbody>
-          <tr th:each="tag,iterStat : ${page.content}">
-            <td th:text="${iterStat.count}">1</td>
-            <td th:text="${tag.name}">刻意练习清单</td>
+          <tr th:each="comment,iterStat : ${page.content}">
+            <td th:text="${iterStat.count}"></td>
+            <td th:text="${comment.content}"></td>
+            <td th:text="${comment.nickname}"></td>
+            <td th:text="${comment.createTime}"></td>
+            <td th:text="${comment.blog.title}"></td>
+            <td th:text="${comment.parentComment}==null ?'一级' : '次级'"></td>
+            <td th:text="${comment.adminComment}==true ?'是' : '否'"></td>
             <td>
-              <a href="#" th:href="@{/admin/tags/{id}/input(id=${tag.id})}" class="ui small teal basic button m-padded-tb-small">编辑</a>
-              <a href="#" th:href="@{/admin/tags/{id}/delete(id=${tag.id})}" class="ui small red basic button m-padded-tb-small">删除</a>
+              <a href="#" th:href="@{/admin/comments/{id}/delete(id=${comment.id})}" class="ui small red basic button m-padded-tb-small">删除</a>
             </td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
-            <th colspan="6">
-              <div class="ui tiny pagination menu" th:if="${page.totalPages}>1">
-                <a class="item" th:href="@{/admin/tags(page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
+            <th colspan="8">
+              <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
+                <a class="item" th:href="@{/admin/comments(page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
                 <div class="item">
                   <span th:text="${page.number}+1"></span>&nbsp;/&nbsp;<span th:text="${page.totalPages}"></span>
                 </div>
-                <a class="item" th:href="@{/admin/tags(page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
+                <a class="item" th:href="@{/admin/comments(page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
               </div>
-              <a href="#" th:href="@{/admin/tags/input}"  class="ui small right floated teal basic button m-padded-tb-small">新增</a>
             </th>
           </tr>
         </tfoot>
@@ -65,12 +72,21 @@
     </div>
   </div>
 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
   <!--底部footer-->
- <!-- <footer th:replace="admin/_fragments :: footer">
+<!--  <footer th:replace="admin/_fragments :: footer">
   </footer>-->
 
   <th:block th:replace="admin/_fragments :: script">
-
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
   </th:block>
 
 

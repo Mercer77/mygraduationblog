@@ -22,7 +22,7 @@
             游客登陆
           </div>
         </h2>
-        <form class="ui large form" method="post" th:action="@{/admin/login}">
+        <form class="ui large form" method="post" th:action="@{/admin/frontLogin}">
           <div class="ui stacked segment">
             <div class="field">
               <div class="ui left icon input">
@@ -37,9 +37,9 @@
               </div>
             </div>
             <button class="ui fluid large teal m-margin-bottom-small submit button">登录</button>
-            <button class="ui fluid large grey button" onclick="history.go(-1)">返回</button>
+            <a class="ui fluid large grey button" onclick="history.go(-1)">返回</a>
              <div class="ui message">
-                新用户？ 去<a th:href="@{admin/register}">注册</a>
+                新用户？ 去<a th:href="@{/admin/userRegister}">注册</a>
              </div>
 
           </div>
@@ -82,6 +82,14 @@
         }
       }
     });
+    $('.message .close')
+            .on('click', function() {
+              $(this)
+                      .closest('.message')
+                      .transition('fade')
+              ;
+            })
+    ;
   </script>
 </body>
 </html>

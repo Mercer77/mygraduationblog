@@ -20,31 +20,42 @@
     <!--导航-->
     <div th:fragment="menu(n)" class="ui secondary attached stackable m-shadow-tiny menu ">
         <div class="ui container">
-        <div class="ui teal header item">
-            <img class="ui avatar image card " src="../static/images/head.jpg" th:src="@{/images/head.jpg}">
-            Mercer的Blo阁
-        </div>
-        <a href="#" th:href="@{/}" class="m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="mini home icon"></i>首页</a>
-        <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="mini idea icon"></i>分类</a>
-        <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="mini tags icon"></i>标签</a>
-        <a href="#" th:href="@{/archives/}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="mini clone icon"></i>归档</a>
-        <!--<a href="#" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="mini sign-in icon"></i>友链</a>-->
-        <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==6} ? 'active'"><i class="mini info icon"></i>关于我</a>
-        <div class="m-item item right m-mobile-hide">
-            <form  target="_blank" action="#" id="queryForm" th:action="@{/search}" method="post">
-                <div class="ui action left icon input m-margin-tb-tiny">
-                    <i class="search icon"></i>
-                    <input type="text" name="query" th:value="${query}" placeholder="Search....">
-                    <button type="submit" class="ui teal button">搜索</button>
+            <div class="ui teal header item">
+                <img class="ui avatar image card " src="../static/images/head.jpg" th:src="@{/images/head.jpg}">
+                Mercer的Blog
+            </div>
+            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="mini home icon"></i>首页</a>
+            <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="mini idea icon"></i>分类</a>
+            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="mini tags icon"></i>标签</a>
+            <a href="#" th:href="@{/archives/}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="mini clone icon"></i>归档</a>
+            <!--<a href="#" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="mini sign-in icon"></i>友链</a>-->
+            <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==6} ? 'active'"><i class="mini info icon"></i>关于我</a>
+            <div class="m-item item right m-mobile-hide">
+                <form  target="_blank" action="#" id="queryForm" th:action="@{/search}" method="post">
+                    <div class="ui action left icon input m-margin-tb-tiny">
+                        <i class="search icon"></i>
+                        <input type="text" name="query" th:value="${query}" placeholder="Search....">
+                        <button type="submit" class="ui teal button">搜索</button>
+                    </div>
+                </form>
+            </div>
+            <div class="m-item item right m-mobile-hide" th:if="${session.ptUser == null}">
+                <a  class="ui teal button login" th:href="@{/admin/userLogin}">登陆</a>&nbsp;
+                <a  class="ui teal button register" th:href="@{/admin/userRegister}">注册</a>
+            </div>
+            <div class="m-item item right  m-mobile-hide  menu" th:if="${session.ptUser != null}">
+                <div class="ui simple dropdown item" th:if="${session.ptUser!=null }">
+                    <div class="text" th:if="${session.ptUser}!=null">
+                        <img class="ui avatar image" th:src="@{${session.ptUser.avatar}}" src="https://unsplash.it/100/100?image=1005">
+                        <span th:text="${session.ptUser.nickname}"></span>
+                    </div>
                 </div>
-            </form>
-
+                <div class="item"><a href="#" th:href="@{/admin/logoutUser}">注销</a></div>
+            </div>
         </div>
-        <div class="m-item item right m-mobile-hide">
-            <a class="ui teal button login" th:href="@{/admin/userLogin}">登陆</a>&nbsp;
-            <a class="ui teal button register" th:href="@{/admin/userRegister}">注册</a>
-        </div>
-    </div>
+        <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
     </div>
     <!--底部footer-->
     <footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-large">
@@ -101,10 +112,6 @@
         <script>
             //加载最新博客列表
             $('#newbloglistContainer').load(/*[[@{/footer/bloglist}]]*/"/footer/bloglist");
-            function login(){
-                $('.ui.modal')
-                    .modal('show')
-            }
         </script>
     </th:block>
 </body>

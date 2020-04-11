@@ -14,7 +14,7 @@
       clearOnFlush：内存数量最大时是否清除。
    -->
     <defaultCache
-            maxElementsInMemory="10000"
+            maxElementsInMemory="1000"
             eternal="false"
             timeToIdleSeconds="120"
             timeToLiveSeconds="120"
@@ -26,38 +26,45 @@
     />
 
     <cache name="comment"
-           maxElementsInMemory="2000"
+           maxElementsInMemory="500"
            eternal="false"
-           timeToIdleSeconds="18000"
-           timeToLiveSeconds="36000"
+           timeToIdleSeconds="120"
+           timeToLiveSeconds="180"
            overflowToDisk="false"
     />
     <cache name="blog"
-           maxElementsInMemory="2000"
+           maxElementsInMemory="500"
            eternal="false"
-           timeToIdleSeconds="18000"
-           timeToLiveSeconds="36000"
+           timeToIdleSeconds="120"
+           timeToLiveSeconds="180"
            overflowToDisk="false"
     />
     <cache name="pages"
-           maxElementsInMemory="2000"
+           maxElementsInMemory="500"
            eternal="false"
-           timeToIdleSeconds="18000"
-           timeToLiveSeconds="36000"
+           timeToIdleSeconds="120"
+           timeToLiveSeconds="180"
            overflowToDisk="false"
     />
     <cache name="tag"
-           maxElementsInMemory="2000"
+           maxElementsInMemory="500"
            eternal="false"
-           timeToIdleSeconds="18000"
-           timeToLiveSeconds="36000"
+           timeToIdleSeconds="120"
+           timeToLiveSeconds="180"
            overflowToDisk="false"
     />
     <cache name="type"
-           maxElementsInMemory="2000"
+           maxElementsInMemory="500"
            eternal="false"
-           timeToIdleSeconds="18000"
-           timeToLiveSeconds="36000"
+           timeToIdleSeconds="120"
+           timeToLiveSeconds="180"
+           overflowToDisk="false"
+    />
+    <cache name="archives"
+           maxElementsInMemory="500"
+           eternal="false"
+           timeToIdleSeconds="120"
+           timeToLiveSeconds="180"
            overflowToDisk="false"
     />
 </ehcache>

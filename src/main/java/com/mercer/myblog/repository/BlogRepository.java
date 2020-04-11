@@ -25,6 +25,9 @@ public interface BlogRepository extends JpaRepository<Blog,Long>,JpaSpecificatio
     Page<Blog> findAll(Specification<Blog> specification, Pageable pageable);   //多条件组合查询
 
 
+    @Query("select b from Blog b where b.published=1 ")
+    Page<Blog>  listPublishBlog(Pageable pageable);
+
     @Query("select b from Blog b where b.recommend=true ")
     Page<Blog>  listRecommendBlogTop(Pageable pageable);
 

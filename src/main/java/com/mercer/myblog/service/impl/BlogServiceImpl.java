@@ -29,7 +29,7 @@ import java.util.*;
  * Auther:麻前程
  */
 
-@CacheConfig(cacheNames = {"blog","pages"})
+@CacheConfig(cacheNames = {"blog","pages","archives"})
 @Service
 public class BlogServiceImpl implements BlogService {
 
@@ -83,7 +83,7 @@ public class BlogServiceImpl implements BlogService {
     @Override
     @Cacheable(value = "pages",key = "#pageable")
     public Page<Blog> list(Pageable pageable) {
-        return blogRepository.findAll(pageable);
+        return blogRepository.listPublishBlog(pageable);
     }
 
     @Override
@@ -171,6 +171,7 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    @Cacheable(value = "archives")
     public Map<String, List<Blog>> getArchivesBlog() {
         Map<String,List<Blog>> map = new HashMap<>();
         List<String> years = blogRepository.getYear();

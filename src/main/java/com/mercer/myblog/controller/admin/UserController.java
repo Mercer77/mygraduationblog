@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 /**
  * @ Date:2019/8/18
@@ -42,19 +43,52 @@ public class UserController {
     public String userRegisterPage(){
         return "register";
     }
+
+    /**
+     * 管理员登录
+     * @param username
+     * @param password
+     * @param session
+     * @param attributes
+     * @return
+     */
     @PostMapping("/login")
     public String login(@RequestParam String username,
                         @RequestParam String password,
                         HttpSession session,
                         RedirectAttributes attributes){
         User user = userService.checkUser(username,password);
-        if (user!=null){
+        if (user!=null && user.getType()==1){
             user.setPassword(null);     //前端不要放密码，不安全
             session.setAttribute("user", user);
             return "admin/index";
         }else {
             attributes.addFlashAttribute("message", "登陆失败，用户名或密码错误！");
             return "redirect:/admin";
+        }
+    }
+
+    /**
+     * 游客登录
+     * @param username
+     * @param password
+     * @param session
+     * @param attributes
+     * @return
+     */
+    @PostMapping("/frontLogin")
+    public String frontLogin(@RequestParam String username,
+                            @RequestParam String password,
+                            HttpSession session,
+                            RedirectAttributes attributes){
+        User user = userService.checkUser(username,password);
+        if (user!=null && user.getType()==0){
+            user.setPassword(null);     //前端不要放密码，不安全
+            session.setAttribute("ptUser", user);
+            return "redirect:/";
+        }else {
+            attributes.addFlashAttribute("message", "登陆失败，用户名或密码错误！");
+            return "redirect:/admin/userLogin";
         }
     }
 
@@ -78,18 +112,29 @@ public class UserController {
             user1.setPassword(DigestUtils.md5DigestAsHex(password.getBytes()));
             user1.setAvatar(avatar);
             user1.setEmail(email);
+            user1.setNickname(username);
+            user1.setType(0);
+            user1.setCreateTime(new Date());
+            user1.setUpdateTime(new Date());
             User user2 = userService.save(user1);
             if (user2!=null){
                 attributes.addFlashAttribute("message", "注册成功！");
                 attributes.addFlashAttribute("code", "1");
             }
         }
-        return "register";
+        return "redirect:/admin/userRegister";
+
     }
     @GetMapping("/logout")
     public String logout(HttpSession session){
         session.removeAttribute("user");
         return "redirect:/admin";
+    }
+
+    @GetMapping("/logoutUser")
+    public String logoutUser(HttpSession session){
+        session.removeAttribute("ptUser");
+        return "redirect:/";
     }
 
 }

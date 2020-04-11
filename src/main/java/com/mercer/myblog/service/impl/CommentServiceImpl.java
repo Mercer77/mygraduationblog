@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -63,6 +65,16 @@ public class CommentServiceImpl implements CommentService {
         comment.setCreateTime(new Date());
         comment.setBlog(blogRepository.findBlogById(blogId));
         return commentRepository.save(comment);
+    }
+
+    @Override
+    public Page<Comment> list(Pageable pageable) {
+        return commentRepository.findAll(pageable);
+    }
+
+    @Override
+    public void delete(Long id) {
+        commentRepository.deleteById(id);
     }
 
     /**
