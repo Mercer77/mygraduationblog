@@ -40,7 +40,7 @@ public class BlogController {
     TagService tagService;
 //    博客列表页面
     @GetMapping("/blogs")
-    public String blogs(@PageableDefault(size = 3,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
+    public String blogs(@PageableDefault(size = 8,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
                         BlogQuery blog, Model model){
         model.addAttribute("page", blogService.list(pageable, blog));
         model.addAttribute("type", typeService.list());

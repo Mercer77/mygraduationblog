@@ -24,4 +24,4 @@ logging:
     root: warn
     com.mercer.myblog: error
 server:
-  port: 80
+  port: 7777
