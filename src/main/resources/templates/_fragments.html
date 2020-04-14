@@ -21,8 +21,10 @@
     <div th:fragment="menu(n)" class="ui secondary attached stackable m-shadow-tiny menu ">
         <div class="ui container">
             <div class="ui teal header item">
-                <img class="ui avatar image card " src="../static/images/head.jpg" th:src="@{/images/head.jpg}">
-                Mercer的Blog
+                <a style="color: #009c95 !important;" th:href="@{/}">
+                    <img class="ui avatar image card " src="../static/images/head.jpg" th:src="@{/images/head.jpg}">
+                    Mercer的Blog
+                </a>
             </div>
             <a href="#" th:href="@{/}" class="m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="mini home icon"></i>首页</a>
             <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="mini idea icon"></i>分类</a>
