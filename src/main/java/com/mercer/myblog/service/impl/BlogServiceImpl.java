@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -121,6 +122,9 @@ public class BlogServiceImpl implements BlogService {
     )
     public Blog save(Blog blog) {
 
+   /*     Date d = new Date();
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd kk:mm:ss ");
+        sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai")); //格式差8小时*/
         if (blog.getId()==null){
             //新增
             blog.setCreateTime(new Date());

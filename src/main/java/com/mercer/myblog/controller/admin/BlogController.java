@@ -48,7 +48,7 @@ public class BlogController {
     }
 //    博客多条件查询
     @PostMapping("/blogs/search")
-    public String blogsSearch(@PageableDefault(size = 3,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
+    public String blogsSearch(@PageableDefault(size = 8,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
                         BlogQuery blog, Model model){
         model.addAttribute("page", blogService.list(pageable, blog));
         return "admin/blogs :: blogList";

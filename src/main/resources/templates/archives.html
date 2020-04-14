@@ -40,7 +40,7 @@
           <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${item.value}">
           <span>
             <i class="mini teal circle icon"></i><span th:text="${blog.title}">关于刻意练习的清单</span>
-            <div class="ui teal basic left pointing label m-padded-tb-tiny" th:text="${#dates.format(blog.updateTime,'MM月dd日')}">9月9日</div>
+            <div class="ui teal basic left pointing label m-padded-tb-tiny" th:text="${#dates.format(blog.createTime,'MM月dd日')}">9月9日</div>
           </span>
 
             <div class="ui right aligned basic orange label" th:text="${blog.flag}">原创</div>

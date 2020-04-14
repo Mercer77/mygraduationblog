@@ -449,7 +449,8 @@ h5,h6{font-size:1em;}
             <div class="twelve wide column">
               <ui class="list">
                 <li>作者: <span th:text="${blog.user.nickname}">麻前程</span>(联系作者)</li>
-                <li>发表时间: <span th:text="${#dates.format(blog.updateTime,'YYYY-MM-dd HH:mm')}">2018-10-23 09:09</span></li>
+                <li>发表时间: <span th:text="${#dates.format(blog.createTime,'YYYY-MM-dd HH:mm')}">2018-10-23 09:09</span></li>
+                <li>最后更新时间: <span th:text="${#dates.format(blog.updateTime,'YYYY-MM-dd HH:mm')}">2018-10-23 09:09</span></li>
                 <li>版权声明: <span th:text="${blog.flag}">自由转载</span></li>
                 <!--<li>公众号转载: 请在文末添加作者</li>-->
               </ui>
