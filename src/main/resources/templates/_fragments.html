@@ -33,7 +33,7 @@
             <!--<a href="#" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="mini sign-in icon"></i>友链</a>-->
             <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==6} ? 'active'"><i class="mini info icon"></i>关于我</a>
             <div class="m-item item right m-mobile-hide">
-                <form  target="_blank" action="#" id="queryForm" th:action="@{/search}" method="post">
+                <form  action="#" id="queryForm" th:action="@{/search}" method="get">
                     <div class="ui action left icon input m-margin-tb-tiny">
                         <i class="search icon"></i>
                         <input type="text" name="query" th:value="${query}" placeholder="Search....">

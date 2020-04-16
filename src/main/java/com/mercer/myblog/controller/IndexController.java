@@ -52,8 +52,8 @@ public class IndexController {
         return "index";
     }
 //    搜索页面
-    @PostMapping("/search")
-    public String search(@PageableDefault(size = 4,sort = "updateTime",direction = Sort.Direction.DESC)
+    @GetMapping("/search")
+    public String search(@PageableDefault(size = 6,sort = "updateTime",direction = Sort.Direction.DESC)
                                      Pageable pageable,
                                      Model model,
                                      @RequestParam String query){

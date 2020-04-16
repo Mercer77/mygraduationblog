@@ -3,7 +3,7 @@
 <head th:replace="_fragments :: head(~{::title})">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>标签页</title>
+  <title>搜索结果</title>
   <link rel="stylesheet" href="../static/css/semantic.min.css">
   <link rel="stylesheet" href="../static/css/me.css">
   <link rel="stylesheet" href="../static/css/main.css">
@@ -74,13 +74,13 @@
       <div class="ui bottom attached segment" th:if="${page.totalPages}>1" >
         <div class="ui middle aligned three column grid">
           <div class="column">
-            <a href="#" class="ui mini teal basic button" th:href="@{/search(page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
+            <a href="#" class="ui mini teal basic button" th:href="@{/search(page=${page.number}-1,query=${query})}" th:unless="${page.first}">上一页</a>
           </div>
           <div class="column" style="text-align: center">
             <span th:text="${page.number}+1"></span>&nbsp;/&nbsp;<span th:text="${page.totalPages}"></span>
           </div>
           <div class="right aligned column">
-            <a href="#" class="ui mini teal basic button" th:href="@{/search(page=${page.number}+1)}" th:unless="${page.last}" >下一页</a>
+            <a href="#" class="ui mini teal basic button" th:href="@{/search(page=${page.number}+1,query=${query})}" th:unless="${page.last}" >下一页</a>
           </div>
         </div>
       </div>
