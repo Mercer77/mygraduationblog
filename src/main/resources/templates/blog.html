@@ -416,9 +416,9 @@ h5,h6{font-size:1em;}
           </div>
           <!--标签-->
           <div class="m-padded-lr-responsive">
-            <div class="ui basic teal left pointing label" th:each="tags : ${blog.tags}">
+            <a th:href="@{/tags/{id}(id=${tags.id})}" class="ui basic teal left pointing label" th:each="tags : ${blog.tags}">
               <span th:text="${tags.name}">方法论</span>
-            </div>
+            </a>
           </div>
           <div th:if="${blog.appreciation}">
             <div class="ui center aligned basic segment" th:if="${blog.appreciation}">

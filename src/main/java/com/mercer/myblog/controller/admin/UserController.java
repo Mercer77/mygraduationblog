@@ -131,7 +131,7 @@ public class UserController {
         return "redirect:/admin";
     }
 
-    @GetMapping("/logoutUser")
+    @GetMapping("/exitPtUser")
     public String logoutUser(HttpSession session){
         session.removeAttribute("ptUser");
         return "redirect:/";

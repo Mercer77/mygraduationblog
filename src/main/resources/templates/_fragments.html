@@ -52,7 +52,9 @@
                         <span th:text="${session.ptUser.nickname}"></span>
                     </div>
                 </div>
-                <div class="item"><a href="#" th:href="@{/admin/logoutUser}">注销</a></div>
+                <div class="item">
+                    <a href="#" th:href="@{/admin/exitPtUser}">注销</a>
+                </div>
             </div>
         </div>
         <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
